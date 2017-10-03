@@ -21,7 +21,6 @@ class Xici(object):
         :param html: 页面的etree对象
         :return: list，包含一页的代理ip：port信息
         """
-        page = 1
         content = []
         if len(html) != 0:
             div_list = html.xpath('//*[@id="ip_list"]/tr')[1:]
@@ -30,7 +29,7 @@ class Xici(object):
                 protol = temp[5].lower()
                 host = temp[0] + ':' + temp[1]
                 distin = host_abstarct(host)
-                con = {'pro':protol, 'host': host, 'md5': distin}
+                con = {'pro': protol, 'host': host, 'md5': distin}
                 print(con)
                 content.append(con)
         return content
@@ -44,12 +43,6 @@ class Nianshao(object):
         self.start_url = 'http://www.nianshao.me/?stype=1'
 
     def onePageContent(self, html):
-        """
-
-        :param html: 
-        :return: 
-        """
-        page = 1
         content = []
         if len(html) != 0:
             div_list = html.xpath('//*[@id="main"]/div/div/table/tbody/tr')
