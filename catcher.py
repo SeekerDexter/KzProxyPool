@@ -7,7 +7,7 @@ import pymysql
 from handler import getARanProxy
 
 
-class htmlCatcher(object):
+class HtmlCatcher(object):
     """暂时是使用http代理去获取https代理"""
     def __init__(self, special):
         self.loading = special
@@ -15,7 +15,7 @@ class htmlCatcher(object):
             "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1"
         }
 
-    def getAProxy(self):
+    def get_a_proxy(self):
         return getARanProxy()
 
     @retry(stop_max_attempt_number=3)
@@ -35,7 +35,6 @@ class htmlCatcher(object):
             print(e)
             html = ''
         return html
-
 
     def save_data(self, content):
         try:
